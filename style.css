@@ -1,55 +1,50 @@
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
     margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     background-color: #ffe6e6;
-    font-family: 'Segoe UI', sans-serif;
-    text-align: center;
+    font-family: Arial, sans-serif;
     overflow: hidden;
+    text-align: center;
 }
 
-h1 {
-    color: #ff4d6d;
-    font-size: 3rem;
+#quiz, .buttons-container {
+    overflow: visible !important;
 }
 
 .buttons-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
-    width: 100%;
-}
-
-.yes-wrapper {
-    width: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-button {
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: transform 0.2s;
+    gap: 20px;
+    margin-top: 20px;
+    position: relative;
 }
 
 #yesBtn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
     background-color: #ff4d6d;
     color: white;
-    white-space: nowrap;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease-out;
+    display: inline-block;
 }
 
 #noBtn {
-    background-color: #ffffff;
-    color: #ff4d6d;
-    z-index: 1000;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: #666;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 10;
 }
 
 .hidden {
@@ -57,5 +52,7 @@ button {
 }
 
 @keyframes fall {
-    to { transform: translateY(100vh) rotate(360deg); }
+    to {
+        transform: translateY(110vh);
+    }
 }
