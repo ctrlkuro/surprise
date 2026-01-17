@@ -8,16 +8,20 @@ noBtn.addEventListener('touchstart', (e) => {
     moveNoButton();
 });
 
-noBtn.addEventListener('click', () => {
-    scale += 0.4;
+noBtn.addEventListener('click', growYesButton);
+
+function growYesButton() {
+    scale += 0.5;
     yesBtn.style.transform = `scale(${scale})`;
+    yesBtn.style.transition = "transform 0.2s ease-in-out"; 
     moveNoButton();
-});
+}
 
 function moveNoButton() {
     noBtn.style.position = 'fixed';
     const btnWidth = noBtn.offsetWidth;
     const btnHeight = noBtn.offsetHeight;
+
     const maxX = window.innerWidth - btnWidth;
     const maxY = window.innerHeight - btnHeight;
 
