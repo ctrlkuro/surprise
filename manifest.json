@@ -1,0 +1,20 @@
+{
+  "short_name": "milove",
+  "name": "Will You Be My Valentine?",
+  "icons": [
+    {
+      "src": "milove.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "milove.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffe6e6",
+  "theme_color": "#ff4d6d"
+}
