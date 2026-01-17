@@ -2,14 +2,12 @@ const noBtn = document.getElementById('noBtn');
 const yesBtn = document.getElementById('yesBtn');
 let scale = 1;
 
-// 1. Move the button when the mouse hovers OR when a finger touches it
 noBtn.addEventListener('mouseover', moveNoButton);
 noBtn.addEventListener('touchstart', (e) => {
     e.preventDefault(); 
     moveNoButton();
 });
 
-// 2. ONLY grow the Yes button if the No button is actually clicked
 noBtn.addEventListener('click', () => {
     scale += 0.4;
     yesBtn.style.transform = `scale(${scale})`;
@@ -37,7 +35,7 @@ function celebrate() {
 }
 
 function startConfetti() {
-    for(let i = 0; i < 100; i++) {
+    for(let i = 0; i < 70; i++) {
         const confetti = document.createElement('div');
         confetti.innerText = '❤️';
         confetti.style.position = 'fixed';
