@@ -18,7 +18,9 @@ function moveNo() {
     noBtn.style.top = `${randomY}px`;
 }
 
-noBtn.addEventListener('mouseover', moveNo);
+noBtn.addEventListener('mouseover', () => {
+    moveNo();
+});
 
 noBtn.addEventListener('touchstart', (e) => {
     e.preventDefault();
