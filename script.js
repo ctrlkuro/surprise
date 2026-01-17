@@ -2,32 +2,26 @@ const noBtn = document.getElementById('noBtn');
 const yesBtn = document.getElementById('yesBtn');
 let scale = 1;
 
-noBtn.addEventListener('mouseover', moveNoButton);
-noBtn.addEventListener('touchstart', (e) => {
-    e.preventDefault(); 
-    moveNoButton();
-});
-
-noBtn.addEventListener('click', growYesButton);
-
-function growYesButton() {
+function handleInteraction(e) {
+    if (e.type === 'touchstart') {
+        e.preventDefault();
+    }
     scale += 0.5;
     yesBtn.style.transform = `scale(${scale})`;
-    yesBtn.style.transition = "transform 0.2s ease-in-out"; 
+    yesBtn.style.zIndex = "1000";
     moveNoButton();
 }
 
+noBtn.addEventListener('touchstart', handleInteraction);
+noBtn.addEventListener('mouseover', handleInteraction);
+noBtn.addEventListener('click', handleInteraction);
+
 function moveNoButton() {
     noBtn.style.position = 'fixed';
-    const btnWidth = noBtn.offsetWidth;
-    const btnHeight = noBtn.offsetHeight;
-
-    const maxX = window.innerWidth - btnWidth;
-    const maxY = window.innerHeight - btnHeight;
-
+    const maxX = window.innerWidth - noBtn.offsetWidth;
+    const maxY = window.innerHeight - noBtn.offsetHeight;
     const randomX = Math.floor(Math.random() * maxX);
     const randomY = Math.floor(Math.random() * maxY);
-
     noBtn.style.left = `${randomX}px`;
     noBtn.style.top = `${randomY}px`;
 }
@@ -39,7 +33,7 @@ function celebrate() {
 }
 
 function startConfetti() {
-    for(let i = 0; i < 70; i++) {
+    for(let i = 0; i < 100; i++) {
         const confetti = document.createElement('div');
         confetti.innerText = '❤️';
         confetti.style.position = 'fixed';
