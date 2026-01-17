@@ -2,21 +2,13 @@ const noBtn = document.getElementById('noBtn');
 const yesBtn = document.getElementById('yesBtn');
 let scale = 1;
 
-function handleInteraction(e) {
-    if (e.type === 'touchstart') {
-        e.preventDefault();
-    }
+function growYes() {
     scale += 0.5;
     yesBtn.style.transform = `scale(${scale})`;
     yesBtn.style.zIndex = "1000";
-    moveNoButton();
 }
 
-noBtn.addEventListener('touchstart', handleInteraction);
-noBtn.addEventListener('mouseover', handleInteraction);
-noBtn.addEventListener('click', handleInteraction);
-
-function moveNoButton() {
+function moveNo() {
     noBtn.style.position = 'fixed';
     const maxX = window.innerWidth - noBtn.offsetWidth;
     const maxY = window.innerHeight - noBtn.offsetHeight;
@@ -25,6 +17,19 @@ function moveNoButton() {
     noBtn.style.left = `${randomX}px`;
     noBtn.style.top = `${randomY}px`;
 }
+
+noBtn.addEventListener('mouseover', moveNo);
+
+noBtn.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    growYes();
+    moveNo();
+});
+
+noBtn.addEventListener('click', (e) => {
+    growYes();
+    moveNo();
+});
 
 function celebrate() {
     document.getElementById('quiz').classList.add('hidden');
